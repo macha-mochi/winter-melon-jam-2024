@@ -297,6 +297,7 @@ MonoBehaviour:
   attractForce: 15
   repelForce: 10
   forceRange: 2
+  particles: {fileID: 2308233161430481030, guid: bfd8a7b7f0e164512bc29129409ccae6, type: 3}
 --- !u!1 &208567427
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +705,7 @@ MonoBehaviour:
   attractForce: 15
   repelForce: 10
   forceRange: 2
+  particles: {fileID: 2308233161430481030, guid: bfd8a7b7f0e164512bc29129409ccae6, type: 3}
 --- !u!50 &385685290
 Rigidbody2D:
   serializedVersion: 4
@@ -1065,6 +1067,7 @@ MonoBehaviour:
   attractForce: 15
   repelForce: 10
   forceRange: 2
+  particles: {fileID: 2308233161430481030, guid: bfd8a7b7f0e164512bc29129409ccae6, type: 3}
 --- !u!1 &598814567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1247,7 @@ MonoBehaviour:
   attractForce: 15
   repelForce: 10
   forceRange: 2
+  particles: {fileID: 0}
 --- !u!212 &698006098
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1412,9 +1416,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e004031e5ac6d46b192d88478930fac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractForce: 20
+  attractForce: 25
   repelForce: 20
-  forceRange: 2
+  forceRange: 3
   reds:
   - {fileID: 295111032}
   - {fileID: 755814231}
@@ -1696,6 +1700,7 @@ MonoBehaviour:
   attractForce: 15
   repelForce: 10
   forceRange: 2
+  particles: {fileID: 0}
 --- !u!61 &1015708249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1997,6 +2002,7 @@ MonoBehaviour:
   attractForce: 15
   repelForce: 10
   forceRange: 2
+  particles: {fileID: 2308233161430481030, guid: bfd8a7b7f0e164512bc29129409ccae6, type: 3}
 --- !u!61 &1387485031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2256,6 +2262,7 @@ MonoBehaviour:
   attractForce: 15
   repelForce: 10
   forceRange: 2
+  particles: {fileID: 2308233161430481030, guid: bfd8a7b7f0e164512bc29129409ccae6, type: 3}
 --- !u!61 &1670837293
 BoxCollider2D:
   m_ObjectHideFlags: 0

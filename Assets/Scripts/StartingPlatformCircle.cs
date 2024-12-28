@@ -18,8 +18,7 @@ public class StartingPlatformCircle : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         colliders = Physics2D.OverlapCircleAll(transform.position, forceRange);
         for(int i = 0; i < colliders.Length; i++)

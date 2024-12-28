@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6468609259865605848}
   - component: {fileID: 4776796092937754533}
   - component: {fileID: 8734141240034491676}
+  - component: {fileID: 8893791740510131989}
   m_Layer: 0
   m_Name: Positive Tile
   m_TagString: Untagged
@@ -173,3 +174,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.24, y: 10.24}
   m_EdgeRadius: 0
+--- !u!114 &8893791740510131989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657977404030588394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bacbec445f95426fb8822383bb032ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 2308233161430481030, guid: bfd8a7b7f0e164512bc29129409ccae6, type: 3}
