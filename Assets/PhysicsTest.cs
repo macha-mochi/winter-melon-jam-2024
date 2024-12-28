@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PhysicsTest : MonoBehaviour
 {
-    [SerializeField] int pole; //0 or 1
+    public int pole; //0 or 1
     [SerializeField] float attractForce;
     [SerializeField] float repelForce;
     [SerializeField] float forceRange;
@@ -24,17 +24,34 @@ public class PhysicsTest : MonoBehaviour
             PhysicsTest other = colliders[i].gameObject.GetComponent<PhysicsTest>();
             if (other != null)
             {
-               if(other.pole != this.pole)
-               {
-                    //attract
-                    Vector2 dir = this.transform.position - other.transform.position;
-                    other.GetComponent<Rigidbody2D>().AddForce(dir * attractForce);
+                if(this.transform.parent != null && other.transform.parent != null && this.transform.parent == other.transform.parent)
+                {
+                    //same object, don't do anything
+
                 }
                 else
                 {
-                    //repel
-                    Vector2 dir = other.transform.position - this.transform.position;
-                    other.GetComponent<Rigidbody2D>().AddForce(dir * repelForce);
+                    if (other.pole != this.pole)
+                    {
+                        //attract
+                        Vector2 dir = this.transform.position - other.transform.position;
+                        float mag = dir.magnitude;
+                        dir = dir.normalized;
+                        Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
+                        if(rb != null && ((repelForce / (mag * mag))) < 100000) rb.AddForce(dir * (attractForce/ (mag*mag)));
+                        //Debug.Log((attractForce / (mag * mag)));
+                    }
+                    else
+                    {
+                        //repel
+                        Vector2 dir = other.transform.position - this.transform.position;
+                        float mag = dir.magnitude;
+
+                        dir = dir.normalized;
+                        Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
+                        //Debug.Log(((repelForce / (mag * mag))));
+                        if (rb != null && ((repelForce / (mag * mag))) < 100000)  rb.AddForce(dir * (repelForce/ (mag*mag)));
+                    }
                 }
             }
         }
