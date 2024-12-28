@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class StartingPlatformCircle : MonoBehaviour
 {
-    [SerializeField] float attractForce;
-    [SerializeField] float repelForce;
-    [SerializeField] float forceRange;
+    [SerializeField] float range;
+    [SerializeField] float circleChargeMagnitude;
     [SerializeField] GameObject[] reds;
     [SerializeField] GameObject[] blues;
 
@@ -20,33 +19,17 @@ public class StartingPlatformCircle : MonoBehaviour
 
     void FixedUpdate()
     {
-        colliders = Physics2D.OverlapCircleAll(transform.position, forceRange);
+        colliders = Physics2D.OverlapCircleAll(transform.position, range);
         for(int i = 0; i < colliders.Length; i++)
         {
-            PhysicsTest other = colliders[i].gameObject.GetComponent<PhysicsTest>();
-            if (other != null)
+            if (colliders[i].TryGetComponent<MagnetBehaviour>(out MagnetBehaviour other) && other.transform.parent != transform.parent && other.transform != transform)
             {
                 GameObject mag = null;
-                int color = closestMagnet(other.gameObject, mag);
+                float circleCharge = closestMagnet(other.gameObject, mag);
 
-                if (other.pole != color)
-                {
-                    //attract
-                    Vector2 dir = this.transform.position - other.transform.position;
-                    float dist = dir.magnitude;
-                    dir = dir.normalized;
-                    Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
-                    if (rb != null && ((attractForce / (dist * dist))) < 100000) rb.AddForce(dir * (attractForce / (dist * dist)));
-                }
-                else
-                {
-                    //repel
-                    Vector2 dir = other.transform.position - this.transform.position;
-                    float dist = dir.magnitude;
-                    dir = dir.normalized;
-                    Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
-                    if (rb != null && ((repelForce / (dist * dist))) < 100000) rb.AddForce(dir * (repelForce / (dist * dist)));
-                }
+                Vector2 dir = transform.position - other.transform.position;
+                float dist = dir.magnitude;
+                other.GetComponent<Rigidbody2D>().AddForce(-dir.normalized * circleCharge * other.charge * 0.5f / dist);
             }
         }
     }
@@ -77,7 +60,7 @@ public class StartingPlatformCircle : MonoBehaviour
         }
         return cb;
     }
-    int closestMagnet(GameObject other, GameObject magnet)
+    float closestMagnet(GameObject other, GameObject magnet)
     {
         GameObject cr = closestRed(other);
         float redDist = Vector2.Distance(other.transform.position, cr.transform.position);
@@ -86,12 +69,12 @@ public class StartingPlatformCircle : MonoBehaviour
         if (redDist <= blueDist)
         {
             magnet = cr;
-            return 0;
+            return circleChargeMagnitude;
         }
         else
         {
             magnet = cb;
-            return 1;
+            return -circleChargeMagnitude;
         }
     }
 }
