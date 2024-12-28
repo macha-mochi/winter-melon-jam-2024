@@ -22,19 +22,23 @@ public class PhysicsTest : MonoBehaviour
         for(int i = 0; i < colliders.Length; i++)
         {
             PhysicsTest other = colliders[i].gameObject.GetComponent<PhysicsTest>();
-            if (other != null)
+            if (other != null && this.transform.parent != other.transform.parent)
             {
                if(other.pole != this.pole)
                {
                     //attract
                     Vector2 dir = this.transform.position - other.transform.position;
-                    other.GetComponent<Rigidbody2D>().AddForce(dir * attractForce);
+                    dir = dir.normalized;
+                    Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
+                    rb.AddForce(dir * attractForce);
                 }
                 else
                 {
                     //repel
                     Vector2 dir = other.transform.position - this.transform.position;
-                    other.GetComponent<Rigidbody2D>().AddForce(dir * repelForce);
+                    dir = dir.normalized;
+                    Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
+                    rb.AddForce(dir * repelForce);
                 }
             }
         }
