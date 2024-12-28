@@ -35,17 +35,22 @@ public class PhysicsTest : MonoBehaviour
                     {
                         //attract
                         Vector2 dir = this.transform.position - other.transform.position;
+                        float mag = dir.magnitude;
                         dir = dir.normalized;
                         Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
-                        if(rb != null) rb.AddForce(dir * attractForce);
+                        if(rb != null && ((repelForce / (mag * mag))) < 100000) rb.AddForce(dir * (attractForce/ (mag*mag)));
+                        //Debug.Log((attractForce / (mag * mag)));
                     }
                     else
                     {
                         //repel
                         Vector2 dir = other.transform.position - this.transform.position;
+                        float mag = dir.magnitude;
+
                         dir = dir.normalized;
                         Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
-                        if (rb != null)  rb.AddForce(dir * repelForce);
+                        //Debug.Log(((repelForce / (mag * mag))));
+                        if (rb != null && ((repelForce / (mag * mag))) < 100000)  rb.AddForce(dir * (repelForce/ (mag*mag)));
                     }
                 }
             }
