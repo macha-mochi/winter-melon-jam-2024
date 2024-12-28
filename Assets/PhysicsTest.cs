@@ -37,7 +37,7 @@ public class PhysicsTest : MonoBehaviour
                         Vector2 dir = this.transform.position - other.transform.position;
                         dir = dir.normalized;
                         Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
-                        rb.AddForce(dir * attractForce);
+                        if(rb != null) rb.AddForce(dir * attractForce);
                     }
                     else
                     {
@@ -45,7 +45,7 @@ public class PhysicsTest : MonoBehaviour
                         Vector2 dir = other.transform.position - this.transform.position;
                         dir = dir.normalized;
                         Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
-                        rb.AddForce(dir * repelForce);
+                        if (rb != null)  rb.AddForce(dir * repelForce);
                     }
                 }
             }
