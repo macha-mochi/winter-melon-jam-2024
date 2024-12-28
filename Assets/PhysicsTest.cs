@@ -22,23 +22,31 @@ public class PhysicsTest : MonoBehaviour
         for(int i = 0; i < colliders.Length; i++)
         {
             PhysicsTest other = colliders[i].gameObject.GetComponent<PhysicsTest>();
-            if (other != null && this.transform.parent != other.transform.parent)
+            if (other != null)
             {
-               if(other.pole != this.pole)
-               {
-                    //attract
-                    Vector2 dir = this.transform.position - other.transform.position;
-                    dir = dir.normalized;
-                    Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
-                    rb.AddForce(dir * attractForce);
+                if(this.transform.parent != null && other.transform.parent != null && this.transform.parent == other.transform.parent)
+                {
+                    //same object, don't do anything
+
                 }
                 else
                 {
-                    //repel
-                    Vector2 dir = other.transform.position - this.transform.position;
-                    dir = dir.normalized;
-                    Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
-                    rb.AddForce(dir * repelForce);
+                    if (other.pole != this.pole)
+                    {
+                        //attract
+                        Vector2 dir = this.transform.position - other.transform.position;
+                        dir = dir.normalized;
+                        Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
+                        rb.AddForce(dir * attractForce);
+                    }
+                    else
+                    {
+                        //repel
+                        Vector2 dir = other.transform.position - this.transform.position;
+                        dir = dir.normalized;
+                        Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
+                        rb.AddForce(dir * repelForce);
+                    }
                 }
             }
         }
