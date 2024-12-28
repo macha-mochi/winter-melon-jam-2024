@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PhysicsTest : MonoBehaviour
 {
-    [SerializeField] int pole; //0 or 1
+    public int pole; //0 or 1
     [SerializeField] float attractForce;
     [SerializeField] float repelForce;
     [SerializeField] float forceRange;
