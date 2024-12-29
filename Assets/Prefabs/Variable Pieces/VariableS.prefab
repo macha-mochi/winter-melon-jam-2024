@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: 10.24
       objectReference: {fileID: 0}
+    - target: {fileID: 5958341112594936192, guid: 4d695b192a74fe3459ed6e0cff005fbe, type: 3}
+      propertyPath: polarized
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8612801157826839785, guid: 4d695b192a74fe3459ed6e0cff005fbe, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 10.24

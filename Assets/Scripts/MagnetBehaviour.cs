@@ -22,7 +22,7 @@ public class MagnetBehaviour : MonoBehaviour
             if (colliders[i].TryGetComponent<MagnetBehaviour>(out MagnetBehaviour other) && other.transform.parent != transform.parent && other.transform != transform){
                 Vector2 dir = transform.position - other.transform.position;
                 float dist = dir.magnitude;
-                other.GetComponent<Rigidbody2D>().AddForce(-dir.normalized * charge * other.charge * 0.5f / dist);
+                other.GetComponent<Rigidbody2D>().AddForce(-dir.normalized * charge * other.charge / (dist* dist));
             }
         }
     }

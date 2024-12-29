@@ -48,10 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555498684f40eaf4f87770a3e433bda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1: {fileID: 8161942459916598918}
-  p2: {fileID: 5758965781031449195}
-  p3: {fileID: 1160773062148920170}
-  p4: {fileID: 9167417835341619143}
+  ps:
+  - {fileID: 7065439897562733523}
+  - {fileID: 1076849276175394438}
+  - {fileID: 6823421999104588434}
+  - {fileID: 4395579305791209683}
+  polarized: 1
 --- !u!1001 &1583448802388466806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0a6767f6317be45a3f8879ac4199b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noRand: 0
 --- !u!255 &2236219025621801024
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -261,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0a6767f6317be45a3f8879ac4199b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noRand: 0
 --- !u!255 &6349344001246301057
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -365,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0a6767f6317be45a3f8879ac4199b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noRand: 0
 --- !u!255 &3230183995851440012
 FixedJoint2D:
   m_ObjectHideFlags: 0
@@ -479,6 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0a6767f6317be45a3f8879ac4199b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noRand: 0
 --- !u!255 &7290569262619674341
 FixedJoint2D:
   m_ObjectHideFlags: 0

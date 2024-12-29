@@ -36,16 +36,22 @@ public class VariableTile : MonoBehaviour
         }
     }
 
-    public void setType(bool isBlue) {
-        if (isBlue) {
+    public void setType(int charge) {
+        if (charge == -1)
+        {
             mb.charge = -10;
             Color c = new Color(97 / 255.0f, 124 / 255.0f, 255 / 255.0f);
             sr.color = c;
         }
-        else
+        else if (charge == 1)
         {
             mb.charge = 10;
             Color c = new Color(255 / 255.0f, 90 / 255.0f, 90 / 255.0f);
+            sr.color = c;
+        }
+        else {
+            mb.charge = 0;
+            Color c = Color.white;
             sr.color = c;
         }
     }

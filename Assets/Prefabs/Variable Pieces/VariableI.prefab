@@ -11,17 +11,37 @@ PrefabInstance:
     - target: {fileID: 713114189415336677, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
       propertyPath: p1
       value: 
-      objectReference: {fileID: 1034932779911229512}
+      objectReference: {fileID: 5859624915856206664}
     - target: {fileID: 713114189415336677, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
       propertyPath: p2
       value: 
-      objectReference: {fileID: 7106699386101386525}
+      objectReference: {fileID: 1034932779911229512}
     - target: {fileID: 713114189415336677, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
       propertyPath: p3
       value: 
       objectReference: {fileID: 3665938762785591561}
     - target: {fileID: 713114189415336677, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
       propertyPath: p4
+      value: 
+      objectReference: {fileID: 7106699386101386525}
+    - target: {fileID: 713114189415336677, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
+      propertyPath: ps.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 713114189415336677, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
+      propertyPath: ps.Array.data[0]
+      value: 
+      objectReference: {fileID: 1034932779911229512}
+    - target: {fileID: 713114189415336677, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
+      propertyPath: ps.Array.data[1]
+      value: 
+      objectReference: {fileID: 7106699386101386525}
+    - target: {fileID: 713114189415336677, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
+      propertyPath: ps.Array.data[2]
+      value: 
+      objectReference: {fileID: 3665938762785591561}
+    - target: {fileID: 713114189415336677, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
+      propertyPath: ps.Array.data[3]
       value: 
       objectReference: {fileID: 5859624915856206664}
     - target: {fileID: 2236219025621801024, guid: da66c6874bf4da842a8c332a7f081b40, type: 3}
