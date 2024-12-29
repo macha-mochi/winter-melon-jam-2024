@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FillAreaScript : MonoBehaviour
 {
-    private int count = 0;
+    private int inArea = 0;
+    private int lostPresents = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +15,13 @@ public class FillAreaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(count);
+        Debug.Log(inArea + " " + lostPresents);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Tile") {
-            count++;
+            inArea++;
         }
     }
 
@@ -28,7 +29,8 @@ public class FillAreaScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Tile")
         {
-            count--;
+            inArea--;
+            lostPresents++;
         }
     }
 }

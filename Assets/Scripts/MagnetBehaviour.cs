@@ -8,6 +8,8 @@ public class MagnetBehaviour : MonoBehaviour
     [SerializeField] float range;
 
     Collider2D[] colliders;
+
+    int offScreen = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,12 @@ public class MagnetBehaviour : MonoBehaviour
                 other.GetComponent<Rigidbody2D>().AddForce(-dir.normalized * charge * other.charge / (dist* dist));
             }
         }
+        if (GetComponent<SpriteRenderer>().isVisible == false) {
+            offScreen++;
+            if (offScreen >= 5) { 
+                Destroy(gameObject);
+            }
+        } 
     }
 
     public float getCharge()

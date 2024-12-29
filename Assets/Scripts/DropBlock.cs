@@ -7,7 +7,9 @@ public class DropBlock : MonoBehaviour
     [SerializeField] GameObject[] spawns;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Camera cam;
-
+    [SerializeField] Transform heightbar;
+    float r;
+    float targetAngle = 0;
     private float delayBetweenPieces = 1f;
     GameObject currentPiece;
     // Start is called before the first frame update
@@ -19,13 +21,15 @@ public class DropBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentPiece != null)
+        {
+            float angle = Mathf.SmoothDampAngle(currentPiece.transform.eulerAngles.z, targetAngle, ref r, 0.1f);
+            currentPiece.transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
         if (Input.GetMouseButtonDown(0))
         {
             if (currentPiece != null) {
-                freezeChildRigidbodies(currentPiece, false);
-                setAllChildMagnet(currentPiece, true);
-                currentPiece = null;
-                StartCoroutine(nextPiece());
+                dropPiece();
             }
 
         }
@@ -37,11 +41,31 @@ public class DropBlock : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    currentPiece.transform.Rotate(new Vector3(0, 0, 90));
+                    rotatePiece();
                 }
+
+                currentPiece.transform.position = Vector3.MoveTowards(currentPiece.transform.position,heightbar.position,Time.deltaTime*((spawnPoint.position.y - heightbar.position.y)/5));
+
+                if (currentPiece.transform.position.y <= heightbar.position.y+0.05f) { 
+                    dropPiece();
+                }
+
             }
         }
     }
+
+    void rotatePiece() {
+        targetAngle += 90;
+        targetAngle %= 360;
+    }
+
+    void dropPiece() {
+        freezeChildRigidbodies(currentPiece, false);
+        setAllChildMagnet(currentPiece, true);
+        currentPiece = null;
+        StartCoroutine(nextPiece());
+    }
+
     void genNewPiece()
     {
         currentPiece = Instantiate(spawns[Random.Range(0, spawns.Length)], spawnPoint.position, Quaternion.identity);
