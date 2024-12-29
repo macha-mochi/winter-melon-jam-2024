@@ -5,37 +5,26 @@ using UnityEngine;
 public class AuroraTextureMaker : MonoBehaviour
 {
     [SerializeField] Texture2D sourceTexture;
-    [SerializeField] Texture2D t;
+    public Texture2D t;
 
     [SerializeField] Color[] colors;
     [SerializeField] SpriteRenderer sr;
 
-    bool[] increaseInHeight;
     int currentColorHeight;
+    Color[] pixels;
 
     Color white = new Color(1, 1, 1, 1);
 
     // Start is called before the first frame update
     void Start()
     {
-        //t = new Texture2D(sourceTexture.width, sourceTexture.height);
+        t = new Texture2D(sourceTexture.width, sourceTexture.height); //, TextureFormat.RGB24, true);
+        t.filterMode = FilterMode.Point;
+        t.alphaIsTransparency = true;
         //Graphics.CopyTexture(sourceTexture, t);
 
-        increaseInHeight = new bool[t.width];
-        bool increase = Random.Range(0, 2) == 0;
-        for(int i = 0; i < t.width; i++)
-        {
-            int randLength = Random.Range(5, 40);
-            int j = i;
-            for(; j < Mathf.Min(t.width, i + randLength); j++)
-            {
-                increaseInHeight[j] = increase;
-            }
-            increase = !increase;
-            i = j - 1;
-        }
-
-        currentColorHeight = Random.Range(1, 31);
+        pixels = sourceTexture.GetPixels();
+        currentColorHeight = 1; // Random.Range(1, 11);
         makeImage();
 
         sr.sprite = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0, 0), 16);
@@ -52,17 +41,27 @@ public class AuroraTextureMaker : MonoBehaviour
         Vector2 whitePixel = leftmostWhitePixel();
 
         bool finished = false;
-        while (!finished)
+        while(!finished) //for(int i = 0; i < t.width; i++)
         {
+            Debug.Log("whitepixel: " + whitePixel);
             SetPixelsInColumn(whitePixel, currentColorHeight);
-            t.Apply();
+            if((int)whitePixel.x >= t.width - 1)
+            {
+                finished = true;
+                break;
+            }
             whitePixel = nextWhitePixel(whitePixel);
-            Debug.Log(increaseInHeight.Length);
-            Debug.Log((int)whitePixel.x);
-            if (increaseInHeight[(int)whitePixel.x]) currentColorHeight += Random.Range(3, 8);
-            else currentColorHeight = Mathf.Min(1, currentColorHeight - Random.Range(3, 8));
-            finished = true;
+            currentColorHeight += Random.Range(-1, 2);
+            currentColorHeight = Mathf.Max(1, currentColorHeight);
         }
+
+        /*for(int i = 0; i < pixels.Length; i++)
+        {
+            Color c = pixels[i];
+            if (c.r == 0 && c.g == 0 && c.b == 0) c.a = 0;
+        }*/
+        t.SetPixels(pixels, 0);
+        t.Apply();
     }
 
     Vector2 nextWhitePixel(Vector2 pos)
@@ -75,7 +74,8 @@ public class AuroraTextureMaker : MonoBehaviour
                 {
                     int x = (int)pos.x + i;
                     int y = (int)pos.y + j;
-                    if(0 <= x && x < t.width && 0 <= y && y < t.height && t.GetPixel(x, y) == white)
+                    Debug.Log(x + " " + y); // + " " + pixels[textureCoordToFlatArray(x, y, t.width)]);
+;                   if (0 <= x && x < t.width && 0 <= y && y < t.height && pixels[textureCoordToFlatArray(x, y, t.width)] == white)//t.GetPixel(x, y) == white)
                     {
                         Debug.Log("found");
                         return new Vector2(x, y);
@@ -92,16 +92,26 @@ public class AuroraTextureMaker : MonoBehaviour
         for(int i = (int)startPos.y; i < t.height; i++)
         {
             int j = i;
-            for(; j < Mathf.Min(t.height, j + colorHeight); j++)
+            for(; j < Mathf.Min(t.height, i + colorHeight); j++)
             {
                 int px = (int)startPos.x;
-                if(j == (int)startPos.y || t.GetPixel(px, j) != white) t.SetPixel((int)startPos.x, j, colors[colorIndex]);
+                if (j == (int)startPos.y || pixels[textureCoordToFlatArray(px, j, t.width)] != white)//t.GetPixel(px, j) != white)
+                {
+                    int ind = textureCoordToFlatArray((int)startPos.x, j, t.width);
+                    //Debug.Log((int)startPos.x + " " + j + " " + t.width);
+                    //Debug.Log(ind);
+                    pixels[ind] = colors[colorIndex];
+                    //t.SetPixel((int)startPos.x, j, colors[colorIndex]);
+                }
             }
             i = j - 1;
             colorIndex++;
             colorHeight += Random.Range(-2, 2);
-            Mathf.Clamp(colorHeight, 1, t.height / 10);
-            if (colorIndex == colors.Length) break;
+            colorHeight = Mathf.Max(1, colorHeight);
+            if (colorIndex == colors.Length)
+            {
+                break;
+            }
         }
     }
 
@@ -109,11 +119,16 @@ public class AuroraTextureMaker : MonoBehaviour
     {
         for(int i = 0; i < t.height; i++)
         {
-            if(t.GetPixel(0, i) == white)
+            if(pixels[textureCoordToFlatArray(0, i, t.width)] == white)//t.GetPixel(0, i) == white)
             {
                 return new Vector2(0, i);
             }
         }
         return new Vector2(-1, -1);
+    }
+    int textureCoordToFlatArray(int x, int y, int width)
+    {
+        //x and y = c and r
+        return y * width + x;
     }
 }

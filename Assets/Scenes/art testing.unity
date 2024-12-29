@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 106693964}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4302517, y: 0.28399587, z: 0}
+  m_LocalPosition: {x: -11.4, y: -5.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -592,7 +592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6460193625792858027, guid: 6f0eb47633c049b40a13f81e57969807, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6908487867454106186, guid: 6f0eb47633c049b40a13f81e57969807, type: 3}
       propertyPath: m_Size.x
@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7521718220350523919, guid: 6f0eb47633c049b40a13f81e57969807, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.18
+      value: -4.28
       objectReference: {fileID: 0}
     - target: {fileID: 7521718220350523919, guid: 6f0eb47633c049b40a13f81e57969807, type: 3}
       propertyPath: m_LocalPosition.y
@@ -700,10 +700,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd57b80af038e4c4dbe18f64eb88a938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourceTexture: {fileID: 2800000, guid: f7e96322a693b4499baf7059e44c108e, type: 3}
-  t: {fileID: 2800000, guid: b5bb6e0365c2a409c9706e762ef443cc, type: 3}
+  sourceTexture: {fileID: 2800000, guid: f7282ea0c14904bc397ae5b05a922ba9, type: 3}
+  t: {fileID: 0}
   colors:
-  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 1, b: 0.8595505, a: 1}
+  - {r: 0.5137255, g: 1, b: 0.7796542, a: 1}
+  - {r: 0.8294305, g: 1, b: 0.8156863, a: 1}
+  - {r: 1, g: 0.998354, b: 0.8156863, a: 1}
+  - {r: 1, g: 0.9103774, b: 0.93543947, a: 1}
   sr: {fileID: 106693965}
 --- !u!4 &1276317215
 Transform:
