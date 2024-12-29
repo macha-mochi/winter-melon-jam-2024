@@ -8,11 +8,15 @@ public class VariableTile : MonoBehaviour
     [SerializeField] public bool noRand;
     private MagnetBehaviour mb;
     private SpriteRenderer sr;
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         mb = GetComponent<MagnetBehaviour>();
         sr = GetComponent<SpriteRenderer>();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+     
         if (!noRand) {
             int rand = Random.Range(0, 3);
             if (rand == 1)
