@@ -45,6 +45,18 @@ PrefabInstance:
       value: Positive Tile
       objectReference: {fileID: 0}
     - target: {fileID: 2538473152543696551, guid: 66dcd92f74f45a241a7b370633ae79b2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538473152543696551, guid: 66dcd92f74f45a241a7b370633ae79b2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538473152543696551, guid: 66dcd92f74f45a241a7b370633ae79b2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538473152543696551, guid: 66dcd92f74f45a241a7b370633ae79b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -83,6 +95,14 @@ PrefabInstance:
     - target: {fileID: 2538473152543696551, guid: 66dcd92f74f45a241a7b370633ae79b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734141240034491676, guid: 66dcd92f74f45a241a7b370633ae79b2, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734141240034491676, guid: 66dcd92f74f45a241a7b370633ae79b2, type: 3}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
