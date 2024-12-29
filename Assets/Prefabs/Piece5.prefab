@@ -102,40 +102,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1462687588174521641, guid: a6bb22d6644d33340a3427259b780b3f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 924929529136329538}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6bb22d6644d33340a3427259b780b3f, type: 3}
 --- !u!50 &1729244067775845892 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4168992808705426599, guid: a6bb22d6644d33340a3427259b780b3f, type: 3}
   m_PrefabInstance: {fileID: 3324991943606309539}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4208679903026182026 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1462687588174521641, guid: a6bb22d6644d33340a3427259b780b3f, type: 3}
-  m_PrefabInstance: {fileID: 3324991943606309539}
-  m_PrefabAsset: {fileID: 0}
---- !u!255 &924929529136329538
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4208679903026182026}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 5851132011194231880}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -10.24}
-  m_DampingRatio: 0
-  m_Frequency: 0
 --- !u!4 &6931501090734290620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5626435239040754719, guid: a6bb22d6644d33340a3427259b780b3f, type: 3}
@@ -228,23 +201,18 @@ FixedJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1729244067775845892}
+  m_ConnectedRigidBody: {fileID: 5851132011194231880}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 10.24, y: 10.24}
+  m_ConnectedAnchor: {x: 10.24, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!4 &6466623006003344504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4413401707109945854, guid: 293acc33a60da83499ee2d690a183278, type: 3}
-  m_PrefabInstance: {fileID: 7242212770850448774}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &6667376690579144059 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 4037131693455759613, guid: 293acc33a60da83499ee2d690a183278, type: 3}
   m_PrefabInstance: {fileID: 7242212770850448774}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7581141963374654645
@@ -344,13 +312,13 @@ FixedJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 6667376690579144059}
+  m_ConnectedRigidBody: {fileID: 1729244067775845892}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -10.24, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 10.24}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1001 &8326078133070164544
