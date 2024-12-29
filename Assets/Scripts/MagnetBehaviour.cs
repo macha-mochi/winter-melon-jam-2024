@@ -31,4 +31,8 @@ public class MagnetBehaviour : MonoBehaviour
     {
         return charge;
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
 }

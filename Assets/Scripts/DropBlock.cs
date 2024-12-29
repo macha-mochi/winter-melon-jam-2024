@@ -16,9 +16,9 @@ public class DropBlock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gml == null) { 
+        /*if (gml == null) { 
             genNewPiece();
-        }
+        }*/ //commented out bc an extra piece was spawning
     }
 
     // Update is called once per frame
