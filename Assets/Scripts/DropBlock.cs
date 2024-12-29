@@ -93,7 +93,6 @@ public class DropBlock : MonoBehaviour
         for (int j = 0; j < mbs.Length; j++)
         {
             mbs[j].enabled = b;
-            mbs[j].gml = gml;
         }
     }
     private IEnumerator nextPiece()

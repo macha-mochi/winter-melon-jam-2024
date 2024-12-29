@@ -69,7 +69,7 @@ public class AuroraTextureMaker : MonoBehaviour
                 {
                     int x = (int)pos.x + i;
                     int y = (int)pos.y + j;
-                    Debug.Log(x + " " + y); // + " " + pixels[textureCoordToFlatArray(x, y, t.width)]);
+                    //Debug.Log(x + " " + y); // + " " + pixels[textureCoordToFlatArray(x, y, t.width)]);
 ;                   if (0 <= x && x < t.width && 0 <= y && y < t.height && pixels[textureCoordToFlatArray(x, y, t.width)] == white)//t.GetPixel(x, y) == white)
                     {
                         Debug.Log("found");

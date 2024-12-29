@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VariableTile
       objectReference: {fileID: 0}
+    - target: {fileID: 3672379594476733955, guid: 293acc33a60da83499ee2d690a183278, type: 3}
+      propertyPath: m_TagString
+      value: Tile
+      objectReference: {fileID: 0}
     - target: {fileID: 4413401707109945854, guid: 293acc33a60da83499ee2d690a183278, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.46
