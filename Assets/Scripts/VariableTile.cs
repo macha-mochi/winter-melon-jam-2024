@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class VariableTile : MonoBehaviour
 {
     [SerializeField] public bool noRand;
     private MagnetBehaviour mb;
     private SpriteRenderer sr;
+    [SerializeField] Sprite red;
+    [SerializeField] Sprite blue;
+    [SerializeField] Sprite white;
+
     private void Awake()
     {
         mb = GetComponent<MagnetBehaviour>();
@@ -40,19 +45,22 @@ public class VariableTile : MonoBehaviour
         if (charge == -1)
         {
             mb.charge = -10;
-            Color c = new Color(97 / 255.0f, 124 / 255.0f, 255 / 255.0f);
-            sr.color = c;
+            sr.sprite = blue;
+            sr.gameObject.GetComponentInChildren<Light2D>().color = Color.blue;
         }
         else if (charge == 1)
         {
             mb.charge = 10;
-            Color c = new Color(255 / 255.0f, 90 / 255.0f, 90 / 255.0f);
-            sr.color = c;
+            sr.sprite = red;
+            sr.gameObject.GetComponentInChildren<Light2D>().color = Color.red;
+
         }
         else {
             mb.charge = 0;
             Color c = Color.white;
-            sr.color = c;
+            sr.sprite = white;
+            sr.gameObject.GetComponentInChildren<Light2D>().color = Color.white;
+
         }
     }
 

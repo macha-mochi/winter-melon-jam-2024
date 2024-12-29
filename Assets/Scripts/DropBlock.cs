@@ -12,15 +12,21 @@ public class DropBlock : MonoBehaviour
     float targetAngle = 0;
     private float delayBetweenPieces = 1f;
     GameObject currentPiece;
+    public GameLevelManager gml;
     // Start is called before the first frame update
     void Start()
     {
-        genNewPiece();
+        if (gml == null) { 
+            genNewPiece();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gml!= null && gml.gameRunning == false) {
+            return;
+        }
         if (currentPiece != null)
         {
             float angle = Mathf.SmoothDampAngle(currentPiece.transform.eulerAngles.z, targetAngle, ref r, 0.1f);
@@ -66,7 +72,7 @@ public class DropBlock : MonoBehaviour
         StartCoroutine(nextPiece());
     }
 
-    void genNewPiece()
+    public void genNewPiece()
     {
         currentPiece = Instantiate(spawns[Random.Range(0, spawns.Length)], spawnPoint.position, Quaternion.identity);
         freezeChildRigidbodies(currentPiece, true);
@@ -87,6 +93,7 @@ public class DropBlock : MonoBehaviour
         for (int j = 0; j < mbs.Length; j++)
         {
             mbs[j].enabled = b;
+            mbs[j].gml = gml;
         }
     }
     private IEnumerator nextPiece()

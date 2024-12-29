@@ -19,7 +19,7 @@ public class VariableBlock : MonoBehaviour
             for(int i = 0; i < 4; i++) arr.Add(i);
             arr.RemoveAt(Random.Range(0, arr.Count));
             arr.RemoveAt(Random.Range(0, arr.Count));
-            Debug.Log(arr.Count);
+            //Debug.Log(arr.Count);
             bool set = false;
             for (int i = 0; i < 4; i++) {
                 if (arr.Contains(i))

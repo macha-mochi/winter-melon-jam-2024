@@ -6,7 +6,7 @@ public class MagnetBehaviour : MonoBehaviour
 {
     public float charge;
     [SerializeField] float range;
-
+    public GameLevelManager gml;
     Collider2D[] colliders;
 
     int offScreen = 0;
@@ -31,6 +31,7 @@ public class MagnetBehaviour : MonoBehaviour
             offScreen++;
             if (offScreen >= 5) { 
                 Destroy(gameObject);
+                if(gml != null) gml.presentsLost++;
             }
         } 
     }
