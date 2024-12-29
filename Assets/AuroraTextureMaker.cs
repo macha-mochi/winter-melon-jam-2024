@@ -6,6 +6,7 @@ public class AuroraTextureMaker : MonoBehaviour
 {
     [SerializeField] Texture2D sourceTexture;
     public Texture2D t;
+    [SerializeField] int singleMaxColorHeight = 20;
 
     [SerializeField] Color[] colors;
     [SerializeField] SpriteRenderer sr;
@@ -24,10 +25,10 @@ public class AuroraTextureMaker : MonoBehaviour
         //Graphics.CopyTexture(sourceTexture, t);
 
         pixels = sourceTexture.GetPixels();
-        currentColorHeight = 1; // Random.Range(1, 11);
+        currentColorHeight = Random.Range(1, 5);
         makeImage();
 
-        sr.sprite = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0, 0), 16);
+        sr.sprite = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f), 16);
     }
     void makeImage()
     {
@@ -52,14 +53,8 @@ public class AuroraTextureMaker : MonoBehaviour
             }
             whitePixel = nextWhitePixel(whitePixel);
             currentColorHeight += Random.Range(-1, 2);
-            currentColorHeight = Mathf.Max(1, currentColorHeight);
+            currentColorHeight = Mathf.Clamp(currentColorHeight, 1, singleMaxColorHeight);
         }
-
-        /*for(int i = 0; i < pixels.Length; i++)
-        {
-            Color c = pixels[i];
-            if (c.r == 0 && c.g == 0 && c.b == 0) c.a = 0;
-        }*/
         t.SetPixels(pixels, 0);
         t.Apply();
     }
@@ -106,8 +101,8 @@ public class AuroraTextureMaker : MonoBehaviour
             }
             i = j - 1;
             colorIndex++;
-            colorHeight += Random.Range(-2, 2);
-            colorHeight = Mathf.Max(1, colorHeight);
+            colorHeight += Random.Range(-2, 3);
+            currentColorHeight = Mathf.Clamp(currentColorHeight, 1, singleMaxColorHeight);
             if (colorIndex == colors.Length)
             {
                 break;
