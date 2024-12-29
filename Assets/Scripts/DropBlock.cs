@@ -5,45 +5,64 @@ using UnityEngine;
 public class DropBlock : MonoBehaviour
 {
     [SerializeField] GameObject[] spawns;
+    [SerializeField] Transform spawnPoint;
     [SerializeField] Camera cam;
+
+    private float delayBetweenPieces = 1f;
+    GameObject currentPiece;
     // Start is called before the first frame update
     void Start()
     {
-        
+        genNewPiece();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 pos = new Vector3(worldPos.x, worldPos.y, 0);
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(spawns[0], pos, Quaternion.identity);
+            freezeChildRigidbodies(currentPiece, false);
+            setAllChildMagnet(currentPiece, true);
+            currentPiece = null;
+            StartCoroutine(nextPiece());
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        else
         {
-            Instantiate(spawns[1], pos, Quaternion.identity);
+            Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+            currentPiece.transform.position = new Vector3(worldPos.x, currentPiece.transform.position.y, currentPiece.transform.position.z);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                currentPiece.transform.Rotate(new Vector3(0, 0, 90));
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+    }
+    void genNewPiece()
+    {
+        currentPiece = Instantiate(spawns[Random.Range(0, spawns.Length)], spawnPoint.position, Quaternion.identity);
+        freezeChildRigidbodies(currentPiece, true);
+        setAllChildMagnet(currentPiece, false);
+    }
+    void freezeChildRigidbodies(GameObject o, bool freeze)
+    {
+        Rigidbody2D[] rbs = o.GetComponentsInChildren<Rigidbody2D>();
+        for (int j = 0; j < rbs.Length; j++)
         {
-            Instantiate(spawns[2], pos, Quaternion.identity);
+            if (freeze) rbs[j].constraints = RigidbodyConstraints2D.FreezeAll;
+            else rbs[j].constraints = RigidbodyConstraints2D.None;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+    }
+    void setAllChildMagnet(GameObject o, bool b)
+    {
+        MagnetBehaviour[] mbs = o.GetComponentsInChildren<MagnetBehaviour>();
+        for (int j = 0; j < mbs.Length; j++)
         {
-            Instantiate(spawns[3], pos, Quaternion.identity);
+            mbs[j].enabled = b;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            Instantiate(spawns[4], pos, Quaternion.identity);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            Instantiate(spawns[5], pos, Quaternion.identity);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            Instantiate(spawns[6], pos, Quaternion.identity);
-        }
+    }
+    private IEnumerator nextPiece()
+    {
+        yield return new WaitForSeconds(delayBetweenPieces);
+        genNewPiece();
     }
 }
