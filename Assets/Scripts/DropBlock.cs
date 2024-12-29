@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class DropBlock : MonoBehaviour
 {
-    [SerializeField] GameObject red;
-    [SerializeField] GameObject blue;
-    [SerializeField] GameObject fourByOne;
+    [SerializeField] GameObject[] spawns;
     [SerializeField] Camera cam;
     // Start is called before the first frame update
     void Start()
@@ -21,15 +19,31 @@ public class DropBlock : MonoBehaviour
         Vector3 pos = new Vector3(worldPos.x, worldPos.y, 0);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Instantiate(red, pos, Quaternion.identity);
+            Instantiate(spawns[0], pos, Quaternion.identity);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Instantiate(blue, pos, Quaternion.identity);
+            Instantiate(spawns[1], pos, Quaternion.identity);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Instantiate(fourByOne, pos, Quaternion.identity);
+            Instantiate(spawns[2], pos, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            Instantiate(spawns[3], pos, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            Instantiate(spawns[4], pos, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            Instantiate(spawns[5], pos, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            Instantiate(spawns[6], pos, Quaternion.identity);
         }
     }
 }
