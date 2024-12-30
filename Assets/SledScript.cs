@@ -15,7 +15,7 @@ public class SledScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gml.gameRunning) {
+        if (gml != null && gml.gameRunning) {
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(worldPos.x, transform.position.y, transform.position.z);
         }
