@@ -1046,6 +1046,7 @@ MonoBehaviour:
   currentPresents: 0
   neededPresents: 10
   winScreen: {fileID: 2078952870}
+  verifyScreen: {fileID: 1524342283}
 --- !u!4 &1356954947
 Transform:
   m_ObjectHideFlags: 0
@@ -1219,6 +1220,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1524342283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7435512686347105407, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
+  m_PrefabInstance: {fileID: 2078952869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1536882677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1464,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1356954946}
+    - target: {fileID: 6507824606676634182, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: nextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 6713918860408016964, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

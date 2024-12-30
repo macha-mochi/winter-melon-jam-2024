@@ -20,6 +20,8 @@ public class GameLevelManager : MonoBehaviour
     public int currentPresents;
     public int neededPresents;
     [SerializeField] GameObject winScreen;
+    [SerializeField] GameObject verifyScreen;
+    bool verifying = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,14 +39,29 @@ public class GameLevelManager : MonoBehaviour
             gameRunning = false;
             lossScreen.SetActive(true);
         }
-        else if (currentPresents >= neededPresents) {
+        else if (!verifying && currentPresents >= neededPresents) {
             gameRunning = false;
-            winScreen.SetActive(true);
+            verifyScreen.SetActive(true);
+            StartCoroutine(checkWin());
+            verifying = true;
         }
+    }
+    public void nextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void restart()
     {
         Initiate.Fade(SceneManager.GetActiveScene().name, Color.black, 1.0f);
+    }
+    private IEnumerator checkWin()
+    {
+        yield return new WaitForSeconds(3);
+        if(currentPresents >= neededPresents)
+        {
+            verifyScreen.SetActive(false);
+            winScreen.SetActive(true);
+        }
     }
 }
