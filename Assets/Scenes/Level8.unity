@@ -969,7 +969,7 @@ MonoBehaviour:
   lossScreen: {fileID: 2116435698}
   gifts: {fileID: 2116435697}
   currentPresents: 0
-  neededPresents: 24
+  neededPresents: 40
   winScreen: {fileID: 2116435696}
   verifyScreen: {fileID: 2116435695}
 --- !u!4 &830342271

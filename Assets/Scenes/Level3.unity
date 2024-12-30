@@ -639,8 +639,8 @@ Transform:
   m_GameObject: {fileID: 971015669}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1514, y: -13.73, z: 0}
-  m_LocalScale: {x: 11.255414, y: 1, z: 1}
+  m_LocalPosition: {x: -0.021, y: -13.73, z: 0}
+  m_LocalScale: {x: 9.990819, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -727,7 +727,7 @@ MonoBehaviour:
   lossScreen: {fileID: 771356805}
   gifts: {fileID: 771356804}
   currentPresents: 0
-  neededPresents: 22
+  neededPresents: 26
   winScreen: {fileID: 771356803}
   verifyScreen: {fileID: 771356802}
 --- !u!4 &1072042507
