@@ -63,5 +63,11 @@ public class GameLevelManager : MonoBehaviour
             verifyScreen.SetActive(false);
             winScreen.SetActive(true);
         }
+        else
+        {
+            gameRunning = true;
+            verifyScreen.SetActive(false);
+            verifying = false;
+        }
     }
 }
