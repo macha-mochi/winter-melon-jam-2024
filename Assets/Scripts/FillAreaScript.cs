@@ -20,7 +20,6 @@ public class FillAreaScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("AAA");
         if (collision.gameObject.tag == "Tile") {
             presents.Add(collision.gameObject);
         }
