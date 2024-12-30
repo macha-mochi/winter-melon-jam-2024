@@ -69,6 +69,10 @@ public class GameLevelManager : MonoBehaviour
     public void mainMenu() {
         Initiate.Fade("Level Select", Color.black, 1.0f);
     }
+    public void startMenu()
+    {
+        Initiate.Fade("StartScreen", Color.black, 1.0f);
+    }
 
     public void restart()
     {

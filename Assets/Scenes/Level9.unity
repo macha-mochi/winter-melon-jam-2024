@@ -1753,6 +1753,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5471764301308478227, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664800160171232597, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2047734949}
+    - target: {fileID: 5664800160171232597, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: startMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212372144986977577, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
+      propertyPath: m_text
+      value: Start Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 6507824606676634182, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1761,11 +1777,19 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2047734949}
+    - target: {fileID: 7329130417374406663, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -175
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413621202612457833, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5351935962169539129, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 939899453}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f2ff5bdaad9405091ff16d0a3426b6, type: 3}
