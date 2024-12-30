@@ -60,8 +60,11 @@ public class GameLevelManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         if(currentPresents >= neededPresents)
         {
+            PlayerPrefs.SetInt("MaxLevel", SceneManager.GetActiveScene().buildIndex + 1);
             verifyScreen.SetActive(false);
             winScreen.SetActive(true);
+            yield return new WaitForSeconds(1.5f);
+            nextLevel();
         }
         else
         {

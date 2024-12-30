@@ -9,6 +9,7 @@ public class StartScreenUI : MonoBehaviour
 
     public void Play()
     {
+        PlayerPrefs.SetInt("MaxLevel", 2);
         SceneManager.LoadScene(1);
     }
     public void Tutorial()
