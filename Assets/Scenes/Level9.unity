@@ -2104,12 +2104,12 @@ MonoBehaviour:
   spawner: {fileID: 589588709}
   gameRunning: 1
   presentsLost: 0
-  maxLost: 4
+  maxLost: 20
   lost: {fileID: 1650930618}
   lossScreen: {fileID: 1650930621}
   gifts: {fileID: 1650930619}
   currentPresents: 0
-  neededPresents: 60
+  neededPresents: 100
   winScreen: {fileID: 1650930622}
   verifyScreen: {fileID: 1650930620}
 --- !u!4 &2047734950
