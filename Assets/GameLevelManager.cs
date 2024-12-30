@@ -48,7 +48,22 @@ public class GameLevelManager : MonoBehaviour
     }
     public void nextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        StartCoroutine(gotonextlvl());
+
+    }
+
+    private IEnumerator gotonextlvl() {
+        SledScript ss = FindAnyObjectByType<SledScript>();
+        while (ss.gameObject.transform.position.x > -30) {
+            ss.gameObject.transform.position = Vector3.MoveTowards(ss.gameObject.transform.position, new Vector3(-30f, ss.gameObject.transform.position.y, ss.gameObject.transform.position.z),80f*Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        playSled();
+        yield return new WaitForSeconds(1.5f);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log(SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1));
+        Initiate.Fade(SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1), Color.black, 1.0f);
     }
 
     public void restart()
@@ -63,8 +78,6 @@ public class GameLevelManager : MonoBehaviour
             PlayerPrefs.SetInt("MaxLevel", SceneManager.GetActiveScene().buildIndex + 1);
             verifyScreen.SetActive(false);
             winScreen.SetActive(true);
-            yield return new WaitForSeconds(1.5f);
-            nextLevel();
         }
         else
         {
@@ -72,5 +85,11 @@ public class GameLevelManager : MonoBehaviour
             verifyScreen.SetActive(false);
             verifying = false;
         }
+    }
+
+    void playSled() { 
+        SledScript ss = FindAnyObjectByType<SledScript>();
+        ss.gameObject.GetComponent<Animator>().applyRootMotion = false;
+        ss.gameObject.GetComponent<Animator>().SetBool("sledgo", true);
     }
 }

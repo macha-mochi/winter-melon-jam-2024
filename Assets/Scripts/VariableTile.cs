@@ -46,13 +46,17 @@ public class VariableTile : MonoBehaviour
         {
             mb.charge = -10;
             sr.sprite = blue;
-            sr.gameObject.GetComponentInChildren<Light2D>().color = Color.blue;
+            sr.gameObject.GetComponentInChildren<Light2D>().color = Color.white;
+            sr.gameObject.GetComponentInChildren<Light2D>().lightCookieSprite = blue;
+
         }
         else if (charge == 1)
         {
             mb.charge = 10;
             sr.sprite = red;
-            sr.gameObject.GetComponentInChildren<Light2D>().color = Color.red;
+            sr.gameObject.GetComponentInChildren<Light2D>().color = Color.white;
+            sr.gameObject.GetComponentInChildren<Light2D>().lightCookieSprite = red;
+
 
         }
         else {
@@ -60,6 +64,9 @@ public class VariableTile : MonoBehaviour
             Color c = Color.white;
             sr.sprite = white;
             sr.gameObject.GetComponentInChildren<Light2D>().color = Color.white;
+            sr.gameObject.GetComponentInChildren<Light2D>().lightCookieSprite = white;
+            sr.gameObject.GetComponentInChildren<Light2D>().intensity = 1.5f;
+
 
         }
     }
