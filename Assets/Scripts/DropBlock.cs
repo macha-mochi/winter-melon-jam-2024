@@ -11,7 +11,7 @@ public class DropBlock : MonoBehaviour
     [SerializeField] Transform heightbar;
     float r;
     float targetAngle = 0;
-    private float delayBetweenPieces = 1f;
+    [SerializeField] float delayBetweenPieces = 1f;
     GameObject currentPiece;
     public GameLevelManager gml;
     // Start is called before the first frame update
