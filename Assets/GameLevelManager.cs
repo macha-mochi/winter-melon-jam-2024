@@ -66,6 +66,10 @@ public class GameLevelManager : MonoBehaviour
         Initiate.Fade(SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1), Color.black, 1.0f);
     }
 
+    public void mainMenu() {
+        Initiate.Fade("Level Select", Color.black, 1.0f);
+    }
+
     public void restart()
     {
         Initiate.Fade(SceneManager.GetActiveScene().name, Color.black, 1.0f);
