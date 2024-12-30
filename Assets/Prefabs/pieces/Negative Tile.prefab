@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bacbec445f95426fb8822383bb032ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clink: {fileID: 8300000, guid: e2b2a667410e34543b53d29630025235, type: 3}
   particles: {fileID: 2308233161430481030, guid: bfd8a7b7f0e164512bc29129409ccae6, type: 3}
 --- !u!1 &3763955926978449863
 GameObject:

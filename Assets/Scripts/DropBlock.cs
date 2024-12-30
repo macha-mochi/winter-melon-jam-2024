@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DropBlock : MonoBehaviour
 {
+    [SerializeField] AudioClip pop;
     [SerializeField] GameObject[] spawns;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Camera cam;
@@ -74,6 +75,7 @@ public class DropBlock : MonoBehaviour
 
     public void genNewPiece()
     {
+        AudioSource.PlayClipAtPoint(pop, transform.position, 1.0f);
         currentPiece = Instantiate(spawns[Random.Range(0, spawns.Length)], spawnPoint.position, Quaternion.identity);
         freezeChildRigidbodies(currentPiece, true);
         setAllChildMagnet(currentPiece, false);
