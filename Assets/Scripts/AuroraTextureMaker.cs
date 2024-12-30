@@ -13,15 +13,14 @@ public class AuroraTextureMaker : MonoBehaviour
 
     int currentColorHeight;
     Color[] pixels;
-
     Color white = new Color(1, 1, 1, 1);
 
     // Start is called before the first frame update
     void Start()
     {
-        t = new Texture2D(sourceTexture.width, sourceTexture.height); //, TextureFormat.RGB24, true);
+        t = new Texture2D(sourceTexture.width, sourceTexture.height, TextureFormat.RGBA32, true); //, TextureFormat.RGB24, true);
         t.filterMode = FilterMode.Point;
-        t.alphaIsTransparency = true;
+       // t.alphaIsTransparency = true;
         //Graphics.CopyTexture(sourceTexture, t);
 
         pixels = sourceTexture.GetPixels();
