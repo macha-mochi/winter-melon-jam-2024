@@ -481,6 +481,10 @@ PrefabInstance:
       propertyPath: m_PointLightOuterRadius
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8812457412082694349, guid: f8324571d62554a359838d512ba6f674, type: 3}
+      propertyPath: clink
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
