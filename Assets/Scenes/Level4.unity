@@ -1077,7 +1077,7 @@ MonoBehaviour:
   spawner: {fileID: 1821893176}
   gameRunning: 1
   presentsLost: 0
-  maxLost: 4
+  maxLost: 12
   lost: {fileID: 160802446}
   lossScreen: {fileID: 160802449}
   gifts: {fileID: 160802447}

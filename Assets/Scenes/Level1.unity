@@ -1182,7 +1182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3990194746448388455, guid: ae88841caaf828145999d260d470b781, type: 3}
       propertyPath: neededPresents
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 6218971136589873103, guid: ae88841caaf828145999d260d470b781, type: 3}
       propertyPath: m_Name
