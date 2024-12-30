@@ -22,7 +22,7 @@ public class MagnetBehaviour : MonoBehaviour
             if (colliders[i].TryGetComponent<MagnetBehaviour>(out MagnetBehaviour other) && other.transform.parent != transform.parent && other.transform != transform){
                 Vector2 dir = transform.position - other.transform.position;
                 float dist = dir.magnitude;
-                other.GetComponent<Rigidbody2D>().AddForce(-dir.normalized * charge * other.charge * 2 / (dist* dist));
+                other.GetComponent<Rigidbody2D>().AddForce(-dir.normalized * charge * other.charge * 2f / (dist* dist));
             }
         }
     }
@@ -31,8 +31,8 @@ public class MagnetBehaviour : MonoBehaviour
     {
         return charge;
     }
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.DrawWireSphere(transform.position, range);
-    //}
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
 }
