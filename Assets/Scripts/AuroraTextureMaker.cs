@@ -44,7 +44,6 @@ public class AuroraTextureMaker : MonoBehaviour
         bool finished = false;
         while(!finished) //for(int i = 0; i < t.width; i++)
         {
-            Debug.Log("whitepixel: " + whitePixel);
             SetPixelsInColumn(whitePixel, currentColorHeight);
             if((int)whitePixel.x >= t.width - 1)
             {
@@ -69,10 +68,8 @@ public class AuroraTextureMaker : MonoBehaviour
                 {
                     int x = (int)pos.x + i;
                     int y = (int)pos.y + j;
-                    //Debug.Log(x + " " + y); // + " " + pixels[textureCoordToFlatArray(x, y, t.width)]);
 ;                   if (0 <= x && x < t.width && 0 <= y && y < t.height && pixels[textureCoordToFlatArray(x, y, t.width)] == white)//t.GetPixel(x, y) == white)
                     {
-                        Debug.Log("found");
                         return new Vector2(x, y);
                     }
                 }
