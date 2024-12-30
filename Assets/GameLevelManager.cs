@@ -32,7 +32,7 @@ public class GameLevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lost.text = presentsLost.ToString();
+        lost.text = presentsLost.ToString() + "/" + maxLost.ToString();
         gifts.text = currentPresents.ToString() + "/" + neededPresents.ToString();
         if (presentsLost >= maxLost)
         {

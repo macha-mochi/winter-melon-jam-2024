@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 public class StartScreenUI : MonoBehaviour
 {
     [SerializeField] GameObject tutorialPopup;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void Play()
     {
@@ -19,5 +14,9 @@ public class StartScreenUI : MonoBehaviour
     public void Tutorial()
     {
         tutorialPopup.SetActive(true);
+    }
+    public void closeTutorial()
+    {
+        tutorialPopup.SetActive(false);
     }
 }
